@@ -1,0 +1,93 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: #87CEEB; /* Sky Blue */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+h1 {
+    color: #FF6347; /* Tomato Red */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 90vw;
+    max-width: 360px;
+    margin-top: 20px;
+}
+
+.hole {
+    width: 100%;
+    padding-top: 100%; /* Creates a square aspect ratio */
+    background-color: #A0522D; /* Sienna - for the hole */
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 5px solid #8B4513; /* SaddleBrown */
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.mole, .bomb {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center 10px;
+    transition: top 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.mole.up, .bomb.up {
+    top: 5%;
+}
+
+/* SVG for the Mole, URL-encoded */
+.mole {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg%3E%3Crect x='0' y='0' width='100' height='100' fill='%23A0522D'/%3E%3Cpath d='M50 30 C 25 30, 25 70, 50 70 S 75 70, 75 30 Z' fill='%238B4513'/%3E%3Ccircle cx='38' cy='50' r='4' fill='black'/%3E%3Ccircle cx='62' cy='50' r='4' fill='black'/%3E%3Ccircle cx='50' cy='60' r='5' fill='%23FFC0CB'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* SVG for the Bomb, URL-encoded */
+.bomb {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg%3E%3Crect x='0' y='0' width='100' height='100' fill='%23A0522D'/%3E%3Ccircle cx='50' cy='65' r='30' fill='black'/%3E%3Cpath d='M50 35 Q 60 20, 70 25' stroke='brown' stroke-width='4' fill='none'/%3E%3Cpath d='M70 25 L 72 23' stroke='orange' stroke-width='5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1.3em;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 4px #388E3C;
+    transition: all 0.1s ease-in-out;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px #388E3C;
+}
+
+button:disabled {
+    background-color: #9E9E9E;
+    box-shadow: 0 4px #757575;
+    cursor: not-allowed;
+}
